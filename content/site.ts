@@ -1,63 +1,68 @@
-// Toutes les informations à compléter sont ici. null = affiché « À FOURNIR » sur le site.
+// Tout le contenu du site. Identité validée par Glody : ne rien ajouter qui ne vienne pas de lui.
+// Les valeurs entre crochets sont des emplacements à remplir, affichés tels quels sur le site.
+
 export const site = {
-  name: 'Glo Shine',
-  phone: '0465 85 68 44' as string | null, // flyer, à confirmer : numéro entouré à la main
-  email: 'contact.gloshine@gmail.com' as string | null, // flyer
-  instagram: null as string | null,
-  hours: null as string | null,
-  communes: { liege: null as string | null, bruxelles: null as string | null },
+  name: 'Glo Shine Cleaning',
+  domain: 'glo-shine.be',
+  tagline: 'Nettoyage à domicile et ménages Airbnb à Liège et Bruxelles',
+  phone: { label: '+32 465 86 85 53', href: 'tel:+32465868553' },
+  cta: 'Demander une visite gratuite',
+  email: '[EMAIL]',
   legal: {
-    denomination: 'Glody Mbieme Nsele, exerçant sous le nom Glo Shine' as string | null, // BCE
-    form: 'Personne physique (indépendant)' as string | null, // BCE
-    address: 'Rue de Hesbaye 248/21, 4000 Liège' as string | null, // fiche tarifs
-    bce: '1043.173.434' as string | null, // BCE, actif depuis le 01/10/2026
-    vat: 'BE 1043.173.434' as string | null, // fiche tarifs, assujetti selon la BCE
-    insurance: null as string | null,
-    host: null as string | null,
-    retention: null as string | null,
+    denomination: '[DÉNOMINATION]',
+    form: '[FORME JURIDIQUE]',
+    address: '[ADRESSE DU SIÈGE]',
+    bce: "[NUMÉRO D'ENTREPRISE]",
+    vat: '[NUMÉRO DE TVA]',
+    insurance: '[ASSURANCE]',
+    host: '[HÉBERGEUR]',
+    retention: '[DURÉE DE CONSERVATION DES DEMANDES]',
   },
 };
 
-// Démo pour Glo Shine : mention IA masquée à la demande de Raphaël. À trancher avant toute mise en ligne.
-export const showAiNotice = false;
-
-// Images d'ambiance : déposer le fichier dans public/ambiance/ puis indiquer son chemin dans `src`.
-// Générées sur Canva, prompts dans ../visuels-ia.md. Jamais de faux chantier ni de faux client.
-export const ambiance = {
-  salon: { src: '/ambiance/salon.jpg' as string | null, alt: 'Salon lumineux baigné de soleil' },
-  cuisine: { src: '/ambiance/cuisine.jpg' as string | null, alt: 'Cuisine claire dans la lumière du matin' },
-  chambre: { src: '/ambiance/chambre.jpg' as string | null, alt: 'Chambre claire, lit fait, lumière douce' },
+export const hero = {
+  title: 'Nettoyage à domicile et ménages Airbnb à Liège et Bruxelles',
+  subtitle: 'On passe d’abord chez vous, puis on vous propose un devis adapté à votre logement.',
 };
 
-// Fiche tarifs de Glo Shine, montants hors TVA. Le site affiche le prix TVA comprise.
-// vatRate À CONFIRMER par un comptable : la fiche indique 6 %, le nettoyage courant relève a priori de 21 %.
-export const tarifs = {
-  vatRate: 0.06,
-  vatConfirmed: false,
-  horaire: [
-    { label: 'Matériel fourni par vous', htva: 10.2 },
-    { label: 'Matériel apporté par nos soins', htva: 11 },
-  ],
-  supplements: [
-    { label: 'Tapis', htva: 5, unit: 'm²' },
-    { label: 'Vitres', htva: 1.5, unit: 'm²' },
-    { label: 'Repassage', htva: 14.4, unit: 'heure' },
-  ],
-  kilometres: [
-    { range: '16 à 20 km', htva: 4 }, { range: '21 à 25 km', htva: 6 }, { range: '26 à 30 km', htva: 8.5 },
-    { range: '31 à 35 km', htva: 10.5 }, { range: '36 à 40 km', htva: 12.5 }, { range: '41 à 45 km', htva: 15 },
-    { range: '46 à 50 km', htva: 17 }, { range: '51 à 55 km', htva: 18.5 }, { range: '56 à 60 km', htva: 20 },
+// Images d'illustration provisoires (Canva), à remplacer par de vraies photos de Glo Shine.
+// Jamais présentées comme un chantier réel ; l'avant/après reste réservé aux vraies photos.
+export const images = {
+  hero: { src: '/ambiance/fenetre.jpg', alt: 'Salon lumineux avec une grande fenêtre en arc' },
+  airbnb: { src: '/ambiance/chambre.jpg', alt: 'Chambre claire au lit fait, serviettes pliées' },
+  zones: { src: '/ambiance/cuisine.jpg', alt: 'Cuisine claire dans la lumière du matin' },
+};
+
+export const services = [
+  { title: 'Ménage régulier', text: 'Un entretien de votre logement à la fréquence qui vous convient.' },
+  { title: 'Grand nettoyage', text: 'Un nettoyage complet, pièce par pièce, quand le logement en a besoin.' },
+  { title: 'Ménage Airbnb entre deux séjours', text: 'Le logement remis en état après le départ d’un voyageur, avant l’arrivée du suivant.' },
+];
+
+export const airbnb = {
+  title: 'Spécial propriétaires Airbnb et conciergeries',
+  points: [
+    { text: 'Ménage entre deux voyageurs', confirm: false },
+    { text: 'Créneaux de 11 h à 15 h, entre le départ et l’arrivée', confirm: true },
+    { text: 'Interventions le week-end', confirm: true },
   ],
 };
 
-// Liste reprise du flyer de Glo Shine (le nettoyage de voiture y est barré à la main).
-export const services = {
-  items: [
-    { title: 'Nettoyage régulier', video: null, text: 'Un entretien à votre rythme, avec des forfaits réguliers.', image: '/services/regulier.jpg', alt: 'Aspirateur sur un parquet au soleil' },
-    { title: 'Grand nettoyage', video: null, text: 'Un nettoyage en profondeur, pièce par pièce.', image: '/services/grand.jpg', alt: 'Mains gantées de bleu nettoyant une cuisinière' },
-    { title: 'Nettoyage de vitres', video: '/video/vitre.mp4', text: 'Des vitres nettes, pour laisser entrer la lumière.', image: '/services/vitres.jpg', alt: 'Outil de lavage glissant sur une vitre' },
-    { title: 'Avant ou après un déménagement', video: null, text: 'Un logement prêt à rendre ou prêt à habiter.', image: '/services/demenagement.jpg', alt: 'Pièce vide et parquet brillant' },
-    { title: 'Repassage', video: null, text: 'Votre linge repassé, une tâche de moins dans la semaine.', image: '/services/repassage.jpg', alt: 'Vêtements pliés sur un tissu bleu' },
-    { title: 'Débarras', video: null, text: 'Pour retrouver la place qui vous manque.', image: '/services/debarras.jpg', alt: 'Cartons empilés' },
-  ],
-};
+export const steps = [
+  { title: 'Vous demandez une visite', text: 'Par le formulaire ou par téléphone.' },
+  { title: 'Glody passe chez vous', text: 'Il découvre votre logement et vos attentes.' },
+  { title: 'Vous recevez un devis adapté', text: 'Un prix établi pour votre logement.' },
+  { title: 'On fait le ménage', text: 'Au rythme convenu ensemble.' },
+];
+
+export const zones = [
+  { city: 'Liège', detail: 'et environs' },
+  { city: 'Bruxelles', detail: '' },
+];
+
+export const faq = [
+  { q: 'La visite est-elle gratuite ?', a: 'Oui. Glody passe chez vous pour voir le logement, puis vous envoie un devis. Vous décidez ensuite.' },
+  { q: 'Pourquoi une visite avant le devis ?', a: 'Chaque logement est différent. Voir les pièces et parler de vos attentes permet de proposer un prix adapté.' },
+  { q: 'Où intervenez-vous ?', a: 'À Liège et dans ses environs, et à Bruxelles.' },
+  { q: 'Vous occupez-vous des logements Airbnb ?', a: 'Oui, entre deux séjours. Les créneaux et les week-ends sont à convenir ensemble.' },
+];

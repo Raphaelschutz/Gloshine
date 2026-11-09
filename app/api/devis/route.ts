@@ -11,13 +11,14 @@ export async function POST(request: Request) {
 
   const demande = {
     name: text(body.name, 120),
-    email: text(body.email, 200),
     phone: text(body.phone, 40),
-    city: text(body.city, 40),
-    service: text(body.service, 80),
+    email: text(body.email, 200),
+    commune: text(body.commune, 80),
+    logement: text(body.logement, 80),
     message: text(body.message, 2000),
   };
-  const valid = demande.name && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(demande.email) && demande.city && demande.service && demande.message;
+  const emailOk = !demande.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(demande.email);
+  const valid = demande.name && demande.phone && demande.commune && demande.logement && emailOk;
   if (!valid || body.consent !== true) return NextResponse.json({ error: 'invalid' }, { status: 400 });
 
   const webhook = process.env.DEVIS_WEBHOOK_URL;

@@ -1,183 +1,170 @@
-import Image from 'next/image';
-import { Ambiance } from '@/components/Ambiance';
-import { DevisForm } from '@/components/DevisForm';
 import { Footer } from '@/components/Footer';
-import { Motion } from '@/components/Motion';
-import { Todo } from '@/components/Todo';
-import { ambiance, services, site, tarifs } from '@/content/site';
+import { Header } from '@/components/Header';
+import { CallLink, PrimaryButton } from '@/components/PrimaryButton';
+import { Scenes } from '@/components/Scenes';
+import { StickyCta } from '@/components/StickyCta';
+import { VisitForm } from '@/components/VisitForm';
+import Image from 'next/image';
+import { airbnb, faq, hero, images, services, steps, zones } from '@/content/site';
 
-const euros = (n: number) => n.toLocaleString('fr-BE', { style: 'currency', currency: 'EUR' });
-const tvac = (htva: number) => euros(htva * (1 + tarifs.vatRate));
-
-// Repris du flyer de Glo Shine.
-const atouts = ['Produits écologiques et non toxiques', 'Réservation simple et rapide', 'Forfaits d’entretien réguliers', 'Tarifs affichés en ligne'];
-
-const steps = [
-  { title: 'Vous décrivez votre logement', text: 'Quelques lignes suffisent : la ville, le type de logement, ce que vous attendez.' },
-  { title: 'Vous recevez un devis', text: 'Glo Shine revient vers vous avec une proposition adaptée à votre demande.' },
-  { title: 'On convient du passage', text: 'Vous choisissez le moment. Vous retrouvez un intérieur net.' },
-];
+const Check = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M5 12.5l4.5 4.5L19 7.5" />
+  </svg>
+);
 
 export default function Home() {
   return (
-    <main>
-      <Motion />
-
-      <section className="hero">
-        <header className="hero-top">
-          <Image src="/logo/glo-shine-logo-inverse.svg" alt="Glo Shine, nettoyage à domicile" width={190} height={57} priority unoptimized />
-        </header>
-        <div className="hero-copy">
-          <h1>
-            <span className="line"><span className="hero-line">Un intérieur</span></span>{' '}
-            <span className="line"><span className="hero-line">qui brille,</span></span>{' '}
-            <span className="line"><span className="hero-line">sans lever</span></span>{' '}
-            <span className="line"><span className="hero-line">le petit doigt.</span></span>
-          </h1>
-          <p className="hero-sub">Ménage à domicile et préparation de logements Airbnb à Liège et Bruxelles. Pour vous, ou pour vos voyageurs.</p>
-        </div>
-        <div className="hero-stage" aria-hidden="true">
-          <svg className="hero-window" viewBox="16 12 68 86">
-            <clipPath id="hero-arc"><path d="M16 94V46a34 34 0 0 1 68 0v48a4 4 0 0 1-4 4H20a4 4 0 0 1-4-4Z" /></clipPath>
-            <path className="hero-glass" d="M16 94V46a34 34 0 0 1 68 0v48a4 4 0 0 1-4 4H20a4 4 0 0 1-4-4Z" />
-            <g clipPath="url(#hero-arc)"><rect className="hero-clean" x="16" y="12" width="68" height="58" /></g>
-            <g className="hero-squeegee">
-              <rect x="22" y="66" width="56" height="8" rx="2" />
-              <path d="M40 74H60L54 84V90a4 4 0 0 1-8 0V84Z" />
-            </g>
-          </svg>
-        </div>
-      </section>
-
-      <section className="atouts" aria-label="Nos engagements">
-        <ul className="wrap">
-          {atouts.map((a) => <li key={a}>{a}</li>)}
-        </ul>
-      </section>
-
-      <section className="section" id="services">
-        <div className="wrap">
-          <h2 data-reveal>Ce que nous faisons chez vous</h2>
-          <ul className="cards">
-            {services.items.map((service) => (
-              <li key={service.title} className="card" data-card>
-                <div className="card-photo">
-                  {service.video ? (
-                    <video src={service.video} poster={service.image} autoPlay muted loop playsInline preload="metadata" aria-label={service.alt} />
-                  ) : (
-                    <Image src={service.image} alt={service.alt} fill sizes="(min-width: 960px) 340px, (min-width: 560px) 45vw, 100vw" />
-                  )}
-                </div>
-                <h3>{service.title}</h3>
-                <p>{service.text}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="band">
-        {ambiance.salon.src && <Ambiance {...ambiance.salon} className="band-image" sizes="100vw" />}
-        <p className="band-text" data-reveal>Rentrer chez soi, et n’avoir plus rien à faire.</p>
-      </section>
-
-      <section className="section section-tint" id="tarifs">
-        <div className="wrap">
-          <h2 data-reveal>Des tarifs clairs</h2>
-          <p className="lead" data-reveal>Prix TVA comprise. {!tarifs.vatConfirmed && <Todo>TVA À CONFIRMER</Todo>}</p>
-          <ul className="prices" data-reveal>
-            {tarifs.horaire.map((t) => (
-              <li key={t.label}>
-                <span>{t.label}</span>
-                <strong>{tvac(t.htva)} <small>/ heure</small></strong>
-                <small>{euros(t.htva)} hors TVA</small>
-              </li>
-            ))}
-          </ul>
-          <h3 data-reveal>Suppléments</h3>
-          <ul className="extras" data-reveal>
-            {tarifs.supplements.map((t) => (
-              <li key={t.label}><span>{t.label}</span><span>{tvac(t.htva)} / {t.unit}</span></li>
-            ))}
-          </ul>
-          <details className="km" data-reveal>
-            <summary>Déplacement au-delà de 15 km de Liège</summary>
-            <ul className="extras">
-              {tarifs.kilometres.map((t) => (
-                <li key={t.range}><span>{t.range}</span><span>{tvac(t.htva)}</span></li>
-              ))}
-            </ul>
-          </details>
-          <p className="note" data-reveal>Tarif pour Bruxelles : <Todo>À FOURNIR</Todo></p>
-        </div>
-      </section>
-
-      <section className="section section-dark">
-        <div className="wrap">
-          <h2 data-reveal>Comment ça se passe</h2>
-          <ol className="steps">
-            {steps.map((step) => (
-              <li key={step.title} data-reveal>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="section section-dark" id="pros">
-        <div className="wrap split">
-          <div>
-            <h2 data-reveal>Vous gérez des locations courte durée&nbsp;?</h2>
-            <p className="lead" data-reveal>
-              Conciergeries, gestionnaires et gîtes : entre un départ et une arrivée, le logement doit être prêt. Glo Shine prend en charge la remise en état pour que vous puissiez accueillir le voyageur suivant.
-            </p>
-            <p className="note" data-reveal>Capacité, délais et tarif par passage : <Todo>À FOURNIR</Todo></p>
-          </div>
-          {ambiance.chambre.src && <Ambiance {...ambiance.chambre} sizes="(min-width: 960px) 520px, 100vw" />}
-        </div>
-      </section>
-
-      <section className="section section-tint" id="zone">
-        <div className="wrap split split-reverse">
-          {ambiance.cuisine.src && <Ambiance {...ambiance.cuisine} sizes="(min-width: 960px) 520px, 100vw" />}
-          <div>
-            <h2 className="sr-only">Zone d’intervention</h2>
-            <div className="cities" data-reveal>
-              <div>
-                <p className="city">Liège</p>
-                <p>Communes couvertes : {site.communes.liege ?? <Todo>À FOURNIR</Todo>}</p>
-              </div>
-              <div>
-                <p className="city">Bruxelles</p>
-                <p>Communes couvertes : {site.communes.bruxelles ?? <Todo>À FOURNIR</Todo>}</p>
+    <>
+      <a className="skip" href="#contenu">Aller au contenu</a>
+      <Header />
+      <Scenes>
+        <div className="aurora" data-anim="aurore" aria-hidden="true" />
+        <main id="contenu">
+          {/* Accueil : le titre, l'accroche et le bouton sont visibles dès le premier affichage. */}
+          <section className="wrap hero">
+            <div>
+              <h1 data-split="titre">{hero.title}</h1>
+              <p className="lead">{hero.subtitle}</p>
+              <div className="hero-actions">
+                <PrimaryButton id="cta-accueil" />
+                <CallLink />
               </div>
             </div>
-            <p className="note" data-reveal>Horaires : {site.hours ?? <Todo>À FOURNIR</Todo>}</p>
-          </div>
-        </div>
-      </section>
+            <div className="photo hero-visual">
+              <Image src={images.hero.src} alt={images.hero.alt} fill priority sizes="(min-width: 960px) 40vw, 100vw" />
+            </div>
+          </section>
 
-      <section className="section" id="preuves">
-        <div className="wrap">
-          <h2 data-reveal>Le résultat, en vrai</h2>
-          <div className="slot" data-reveal>
-            <Todo>À FOURNIR</Todo>
-            <p>Vraies photos avant/après, avis de vrais clients, assurance. Cette place leur est réservée.</p>
-          </div>
-        </div>
-      </section>
+          <section className="section" id="services">
+            <div className="wrap">
+              <p className="eyebrow" data-anim="apparition">Services</p>
+              <h2 data-anim="apparition">Ce que nous faisons <span className="gradient-text">chez vous</span></h2>
+              <ul className="cards">
+                {services.map((service, i) => (
+                  <li key={service.title} className="card" data-anim="carte">
+                    <span className="card-index" aria-hidden="true">{i + 1}</span>
+                    <h3>{service.title}</h3>
+                    <p>{service.text}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
 
-      <section className="section section-tint" id="devis">
-        <div className="wrap wrap-narrow">
-          <h2>Parlez-nous de votre logement</h2>
-          <p className="lead">Décrivez votre besoin en quelques lignes. Glo Shine vous répond avec une proposition.</p>
-          <DevisForm />
-        </div>
-      </section>
+          <section className="section section-soft" id="airbnb">
+            <div className="wrap airbnb">
+              <div>
+                <p className="eyebrow" data-anim="apparition">Airbnb et conciergeries</p>
+                <h2 data-anim="apparition">{airbnb.title}</h2>
+                <div className="photo photo-wide" data-anim="photo">
+                  <Image src={images.airbnb.src} alt={images.airbnb.alt} fill sizes="(min-width: 960px) 45vw, 100vw" />
+                </div>
+              </div>
+              <ul className="checklist">
+                {airbnb.points.map((point) => (
+                  <li key={point.text} data-anim="carte">
+                    <Check />
+                    {point.text}
+                    {point.confirm && <span className="tag">À CONFIRMER AVEC GLODY</span>}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
 
+          <section className="section" id="etapes">
+            <div className="wrap">
+              <p className="eyebrow" data-anim="apparition">Comment ça marche</p>
+              <h2 data-anim="apparition">Une visite d’abord, <span className="gradient-text">puis le devis</span></h2>
+              <div className="steps-wrap" data-anim="etapes">
+                <div className="steps-track" aria-hidden="true"><div className="steps-line" data-anim="ligne" /></div>
+                <ol className="steps">
+                  {steps.map((step, i) => (
+                    <li key={step.title} className="step" data-anim="etape">
+                      <span className="step-num" aria-hidden="true">{i + 1}</span>
+                      <h3>{step.title}</h3>
+                      <p>{step.text}</p>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </section>
+
+          <section className="section section-soft" id="resultat">
+            <div className="wrap">
+              <p className="eyebrow" data-anim="apparition">Avant / après</p>
+              <h2 data-anim="apparition">Le résultat, en <span className="gradient-text">vraies photos</span></h2>
+              <div className="compare" data-anim="avant-apres" role="img" aria-label="Comparaison avant et après, photos à venir">
+                <div className="compare-layer">
+                  <div className="placeholder">[PHOTO AVANT]</div>
+                  <span className="compare-label" style={{ left: 14 }}>Avant</span>
+                </div>
+                <div className="compare-layer compare-after" data-anim="apres">
+                  <div className="compare-after-inner" data-anim="apres-interieur">
+                    <div className="placeholder">[PHOTO APRÈS]</div>
+                    <span className="compare-label" style={{ right: 14 }}>Après</span>
+                  </div>
+                </div>
+                <div className="compare-handle" data-anim="poignee" aria-hidden="true"><span>↔</span></div>
+              </div>
+            </div>
+          </section>
+
+          <section className="section" id="zones">
+            <div className="wrap">
+              <p className="eyebrow" data-anim="apparition">Zones</p>
+              <h2 data-anim="apparition">Là où nous intervenons</h2>
+              <ul className="zones">
+                {zones.map((zone) => (
+                  <li key={zone.city} className="zone" data-anim="carte">
+                    <p className="zone-city gradient-text">{zone.city}</p>
+                    {zone.detail && <p>{zone.detail}</p>}
+                  </li>
+                ))}
+              </ul>
+              <div className="photo photo-band" data-anim="photo">
+                <Image src={images.zones.src} alt={images.zones.alt} fill sizes="(min-width: 1200px) 1120px, 100vw" />
+              </div>
+            </div>
+          </section>
+
+          <section className="section section-soft" id="avis">
+            <div className="wrap">
+              <p className="eyebrow" data-anim="apparition">Avis clients</p>
+              <h2 data-anim="apparition">Ce qu’en disent nos clients</h2>
+              <div className="placeholder reviews" data-anim="apparition">[AVIS GOOGLE À VENIR]</div>
+            </div>
+          </section>
+
+          <section className="section" id="faq">
+            <div className="wrap">
+              <p className="eyebrow" data-anim="apparition">Questions fréquentes</p>
+              <h2 data-anim="apparition">Vos questions</h2>
+              <div className="faq" data-anim="apparition">
+                {faq.map((item) => (
+                  <details key={item.q}>
+                    <summary>{item.q}</summary>
+                    <p>{item.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="section section-soft" id="visite">
+            <div className="wrap form-wrap">
+              <p className="eyebrow">Visite gratuite</p>
+              <h2>Demander une visite <span className="gradient-text">gratuite</span></h2>
+              <p className="lead">Glody passe chez vous, puis vous propose un devis adapté à votre logement.</p>
+              <VisitForm />
+            </div>
+          </section>
+        </main>
+      </Scenes>
       <Footer />
-    </main>
+      <StickyCta />
+    </>
   );
 }

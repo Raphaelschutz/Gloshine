@@ -1,23 +1,22 @@
-# Site vitrine Glo Shine
+# Site Glo Shine Cleaning (glo-shine.be)
 
-Next.js + GSAP. Non publié, non indexable tant que `robots` reste dans `app/layout.tsx`.
+Next.js + GSAP (ScrollTrigger, SplitText, @gsap/react). Non publié et non indexable tant que `robots` reste dans `app/layout.tsx`.
 
 ## Lancer en local
 ```bash
 npm install
-npm run dev
+npm run build && npm run start
 ```
 Puis ouvrir http://localhost:3100
 
-## Compléter
-- Contact, légal, communes, horaires : `content/site.ts`. Une valeur renseignée remplace automatiquement « À FOURNIR ».
-- Services : `content/site.ts`, liste reprise du flyer.
-- Vraies photos, avis, chiffres : blocs pointillés de `app/page.tsx`.
-- Visuels de démo : `public/ambiance/`, `public/services/`, `public/video/`. Origine : `../reference/credits-visuels.md`.
+## Où modifier quoi
+- Textes, téléphone, mentions légales : `content/site.ts`. Les valeurs entre crochets sont des emplacements à remplir.
+- Couleurs des deux thèmes : variables en tête de `app/globals.css`, aucune couleur en dur ailleurs.
+- Animations : `components/Scenes.tsx`, toutes dans `gsap.matchMedia()`, aucune en mode « moins d'animations ».
+- Images d'illustration provisoires (Canva) : `public/ambiance/`, à remplacer par de vraies photos de Glo Shine. L'avant/après attend de vraies photos.
 
 ## Avant la mise en ligne
-1. Plus aucune mention « À FOURNIR » ni « À CONFIRMER » sur le site.
-2. Choisir l'outil qui reçoit les demandes et renseigner `DEVIS_WEBHOOK_URL` (voir `.env.example`). Sans cela, le formulaire n'envoie rien et le dit au visiteur.
+1. Remplir tous les emplacements entre crochets (`content/site.ts`, avant/après, avis).
+2. Relier le formulaire : `DEVIS_WEBHOOK_URL` (voir `.env.example`). Sans lui, le formulaire n'envoie rien et le dit.
 3. Faire relire les mentions légales et la politique de confidentialité.
-4. Retirer `robots` de `app/layout.tsx`.
-5. Décider de `showAiNotice` dans `content/site.ts` et remplacer les visuels de démo (voir `../reference/credits-visuels.md`).
+4. Retirer `robots` de `app/layout.tsx` (c'est la seule raison du score SEO de 63 en local).

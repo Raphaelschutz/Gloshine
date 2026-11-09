@@ -1,28 +1,32 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { Spark } from '@/components/PrimaryButton';
+import { site } from '@/content/site';
 
-// Le seul bouton « Demander un devis » de la page : toujours à portée de pouce,
-// il s'efface quand le formulaire, qui porte le sien, est à l'écran.
+// Un seul bouton plein par écran : celui-ci n'apparaît que lorsque le bouton de l'accueil
+// a quitté l'écran, et s'efface quand le formulaire, qui porte le sien, est visible.
 export function StickyCta() {
-  const pathname = usePathname();
-  const [hidden, setHidden] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const form = document.getElementById('devis');
-    if (!form) {
-      setHidden(false);
-      return;
-    }
-    const observer = new IntersectionObserver(([entry]) => setHidden(entry.isIntersecting), { threshold: 0.15 });
+    const hero = document.getElementById('cta-accueil');
+    const form = document.getElementById('visite');
+    if (!hero || !form) return;
+    const seen = new Map<Element, boolean>([[hero, true], [form, false]]);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => seen.set(entry.target, entry.isIntersecting));
+      setVisible(!seen.get(hero) && !seen.get(form));
+    }, { threshold: 0.05 });
+    observer.observe(hero);
     observer.observe(form);
     return () => observer.disconnect();
-  }, [pathname]);
+  }, []);
 
   return (
-    <a className="cta cta-sticky" href="/#devis" data-hidden={hidden} aria-hidden={hidden} tabIndex={hidden ? -1 : undefined}>
-      Demander un devis
+    <a className="btn sticky-cta" href="#visite" data-visible={visible} aria-hidden={!visible} tabIndex={visible ? undefined : -1}>
+      {site.cta}
+      <Spark />
     </a>
   );
 }
