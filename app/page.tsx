@@ -24,7 +24,7 @@ export default function Home() {
         <div className="aurora" data-anim="aurore" aria-hidden="true" />
         <main id="contenu">
           {/* Accueil : le titre, l'accroche et le bouton sont visibles dès le premier affichage. */}
-          <section className="wrap hero">
+          <section className="wrap hero" id="accueil">
             <div>
               <h1 data-split="titre">{hero.title}</h1>
               <p className="lead">{hero.subtitle}</p>

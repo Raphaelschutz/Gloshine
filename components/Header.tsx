@@ -7,9 +7,10 @@ export function Header() {
   return (
     <header className="header">
       <div className="wrap header-inner">
-        <Link href="/">
+        {/* Retour à l'accueil : défilement doux sur la page d'accueil, navigation depuis les autres pages. */}
+        <a href="/#accueil" className="logo-link">
           <Logo id="logo-entete" />
-        </Link>
+        </a>
         <nav className="nav" aria-label="Sections">
           <a href="/#services">Services</a>
           <a href="/#airbnb">Airbnb</a>
