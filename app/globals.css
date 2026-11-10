@@ -135,7 +135,7 @@ a { color: var(--link); }
 
 /* Intro : logo et slogan avant l'ouverture du site. */
 .intro { display: none; }
-html[data-intro='1'] .intro { position: fixed; inset: 0; z-index: 200; display: grid; place-content: center; justify-items: center; gap: 22px; padding: 24px; text-align: center; background: var(--bg); cursor: pointer; animation: intro-secours 0.6s ease 3.2s forwards; }
+html[data-intro='1'] .intro { position: fixed; inset: 0; z-index: 200; display: grid; place-content: center; justify-items: center; gap: 22px; padding: 24px; text-align: center; background: var(--bg); cursor: pointer; animation: intro-secours 0.6s ease 4s forwards; }
 html[data-intro='1'] .intro::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: var(--aurora-opacity); background: radial-gradient(closest-side at 70% 30%, var(--brand-a), transparent 70%), radial-gradient(closest-side at 30% 75%, var(--brand-b), transparent 70%); }
 html[data-intro='1'] .intro.intro-js { animation: none; }
 @keyframes intro-secours { to { transform: translateY(-100%); visibility: hidden; } }

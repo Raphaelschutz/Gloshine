@@ -9,7 +9,7 @@ import { slogan } from '@/content/site';
 
 gsap.registerPlugin(useGSAP, SplitText);
 
-// Intro de l'accueil : logo et slogan, environ 2 s, une fois par visite.
+// Intro de l'accueil : logo et slogan, environ 3 s, une fois par visite.
 // Le script du <head> décide de l'afficher (pas en mode « moins d'animations », pas deux fois).
 // Sans JavaScript elle ne s'affiche pas ; si le script plante, une animation CSS la retire seule.
 export function Intro() {
@@ -38,7 +38,7 @@ export function Intro() {
         .fromTo('[data-anim="etincelle"]', { scale: 0.4, rotation: -60 }, { scale: 1.3, rotation: 0, duration: 0.35, ease: 'power2.out', svgOrigin: '108 32' }, '-=0.15')
         .to('[data-anim="etincelle"]', { scale: 1, duration: 0.25, ease: 'power2.inOut', svgOrigin: '108 32' })
         .from(words, { y: 18, opacity: 0, duration: 0.45, stagger: 0.04, ease: 'power3.out' }, '-=0.45')
-        .addLabel('sortie', '+=0.45')
+        .addLabel('sortie', '+=1.05')
         .to(el, { yPercent: -100, duration: 0.65, ease: 'power4.inOut' }, 'sortie');
 
       // Passer : un clic, la touche Échap ou le bouton « Entrer » lancent tout de suite la sortie.
