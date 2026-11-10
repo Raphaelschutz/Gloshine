@@ -247,7 +247,7 @@ html[data-intro='1'] .intro.intro-js { animation: none; }
   .hero h1 { font-size: clamp(3.2rem, 5vw, 4.9rem); }
   .hero-visual { aspect-ratio: 4 / 5; }
   .airbnb { grid-template-columns: 1fr 1fr; align-items: start; gap: 64px; }
-  .apropos { grid-template-columns: 0.9fr 1.1fr; align-items: center; gap: 72px; }
+  .apropos { grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 72px; }
   .apropos-visual { max-height: none; }
   /* Sur ordinateur, le même bouton unique flotte en bas à droite (le coin de l'en-tête est à la bascule de thème). */
   .sticky-cta { left: auto; right: 32px; bottom: 32px; }

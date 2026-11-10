@@ -77,9 +77,6 @@ export default function Home() {
 
           <section className="section" id="apropos">
             <div className="wrap apropos">
-              <div className="photo apropos-visual" data-anim="photo" data-parallax>
-                <Image src={images.apropos.src} alt={images.apropos.alt} fill sizes="(min-width: 960px) 42vw, 100vw" />
-              </div>
               <div>
                 <p className="eyebrow" data-anim="apparition">Qui sommes-nous</p>
                 <h2 data-anim="apparition">
@@ -96,6 +93,9 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
+              </div>
+              <div className="photo apropos-visual" data-anim="photo" data-parallax>
+                <Image src={images.apropos.src} alt={images.apropos.alt} fill sizes="(min-width: 960px) 42vw, 100vw" />
               </div>
             </div>
           </section>
