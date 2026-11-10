@@ -34,6 +34,23 @@ export const images = {
   hero: { src: '/ambiance/fenetre.jpg', alt: 'Salon lumineux avec une grande fenêtre en arc' },
   airbnb: { src: '/ambiance/chambre.jpg', alt: 'Chambre claire au lit fait, serviettes pliées' },
   zones: { src: '/ambiance/cuisine.jpg', alt: 'Cuisine claire dans la lumière du matin' },
+  apropos: { src: '/ambiance/apropos.jpg', alt: 'Grand salon impeccable baigné de lumière au coucher du soleil' },
+};
+
+// Qui sommes-nous : uniquement des faits fournis par Glo Shine (expérience en biopharmaceutique).
+// Aucun nom d'entreprise, certification ou chiffre tant que Glody ne les a pas confirmés.
+export const apropos = {
+  title: 'La rigueur du biopharma,',
+  titleAccent: 'appliquée à votre intérieur',
+  text: [
+    'Notre équipe vient du nettoyage en environnement biopharmaceutique. Là-bas, les surfaces sont nettoyées plusieurs fois par jour, selon des protocoles stricts où rien n’est laissé au hasard.',
+    'Nous apportons ce niveau d’exigence chez vous : chaque pièce est traitée avec la même méthode et le même soin du détail.',
+  ],
+  points: [
+    'Des protocoles précis, pièce par pièce',
+    'Le réflexe du détail, là où l’on ne regarde pas',
+    'Le même niveau d’exigence, à chaque passage',
+  ],
 };
 
 export const services = [

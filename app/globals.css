@@ -87,6 +87,7 @@ a { color: var(--link); }
 .wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: var(--gutter); }
 .section { position: relative; padding-block: clamp(80px, 13vw, 160px); }
 .section-soft { background: var(--bg-soft); transition: background-color 0.25s ease; }
+.section-soft .placeholder, .section-soft .form-status { background: var(--card); }
 .eyebrow { font: 600 0.85rem/1 var(--body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
 .lead { margin-top: 20px; font-size: clamp(1.1rem, 2.6vw, 1.35rem); color: var(--text-2); max-width: 36em; }
 /* Dégradé de marque réservé aux grands titres. */
@@ -162,6 +163,11 @@ html[data-intro='1'] .intro.intro-js { animation: none; }
 /* Airbnb */
 .airbnb { display: grid; gap: 36px; }
 .checklist { display: grid; gap: 12px; }
+.apropos { display: grid; gap: 36px; }
+.apropos-visual { aspect-ratio: 4 / 5; max-height: 72vh; width: 100%; }
+.apropos-text { margin-top: 18px; color: var(--text-2); max-width: 36em; }
+.apropos h2 + .apropos-text { margin-top: 22px; }
+.apropos-points { margin-top: 28px; }
 .checklist li { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; padding: 18px 20px; border-radius: 18px; background: var(--card); border: 1px solid var(--border); font-weight: 600; transition: background-color 0.25s ease, border-color 0.25s ease; }
 .checklist svg { flex: none; width: 22px; height: 22px; fill: none; stroke: var(--accent); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 
@@ -241,6 +247,8 @@ html[data-intro='1'] .intro.intro-js { animation: none; }
   .hero h1 { font-size: clamp(3.2rem, 5vw, 4.9rem); }
   .hero-visual { aspect-ratio: 4 / 5; }
   .airbnb { grid-template-columns: 1fr 1fr; align-items: start; gap: 64px; }
+  .apropos { grid-template-columns: 0.9fr 1.1fr; align-items: center; gap: 72px; }
+  .apropos-visual { max-height: none; }
   /* Sur ordinateur, le même bouton unique flotte en bas à droite (le coin de l'en-tête est à la bascule de thème). */
   .sticky-cta { left: auto; right: 32px; bottom: 32px; }
   .steps { grid-template-columns: repeat(4, 1fr); padding-left: 0; padding-top: 76px; gap: 28px; }

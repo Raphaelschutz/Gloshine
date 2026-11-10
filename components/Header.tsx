@@ -14,6 +14,7 @@ export function Header() {
         <nav className="nav" aria-label="Sections">
           <a href="/#services">Services</a>
           <a href="/#airbnb">Airbnb</a>
+          <a href="/#apropos">À propos</a>
           <a href="/#zones">Zones</a>
           <a href="/#faq">FAQ</a>
         </nav>

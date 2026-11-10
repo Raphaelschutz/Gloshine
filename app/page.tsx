@@ -6,7 +6,7 @@ import { Scenes } from '@/components/Scenes';
 import { StickyCta } from '@/components/StickyCta';
 import { VisitForm } from '@/components/VisitForm';
 import Image from 'next/image';
-import { airbnb, faq, hero, images, services, steps, zones } from '@/content/site';
+import { airbnb, apropos, faq, hero, images, services, steps, zones } from '@/content/site';
 
 const Check = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -75,7 +75,32 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="section" id="etapes">
+          <section className="section" id="apropos">
+            <div className="wrap apropos">
+              <div className="photo apropos-visual" data-anim="photo" data-parallax>
+                <Image src={images.apropos.src} alt={images.apropos.alt} fill sizes="(min-width: 960px) 42vw, 100vw" />
+              </div>
+              <div>
+                <p className="eyebrow" data-anim="apparition">Qui sommes-nous</p>
+                <h2 data-anim="apparition">
+                  {apropos.title} <span className="gradient-text">{apropos.titleAccent}</span>
+                </h2>
+                {apropos.text.map((t) => (
+                  <p key={t} className="apropos-text" data-anim="apparition">{t}</p>
+                ))}
+                <ul className="checklist apropos-points">
+                  {apropos.points.map((point) => (
+                    <li key={point} data-anim="carte">
+                      <Check />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section className="section section-soft" id="etapes">
             <div className="wrap">
               <p className="eyebrow" data-anim="apparition">Comment ça marche</p>
               <h2 data-anim="apparition">Une visite d’abord, <span className="gradient-text">puis le devis</span></h2>
@@ -94,7 +119,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="section section-soft" id="zones">
+          <section className="section" id="zones">
             <div className="wrap">
               <p className="eyebrow" data-anim="apparition">Zones</p>
               <h2 data-anim="apparition">Là où nous intervenons</h2>
@@ -112,7 +137,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="section" id="avis">
+          <section className="section section-soft" id="avis">
             <div className="wrap">
               <p className="eyebrow" data-anim="apparition">Avis clients</p>
               <h2 data-anim="apparition">Ce qu’en disent nos clients</h2>
@@ -120,7 +145,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="section section-soft" id="faq">
+          <section className="section" id="faq">
             <div className="wrap">
               <p className="eyebrow" data-anim="apparition">Questions fréquentes</p>
               <h2 data-anim="apparition">Vos questions</h2>
@@ -135,7 +160,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="section" id="visite">
+          <section className="section section-soft" id="visite">
             <div className="wrap form-wrap">
               <p className="eyebrow">Visite gratuite</p>
               <h2>Demander une visite <span className="gradient-text">gratuite</span></h2>
