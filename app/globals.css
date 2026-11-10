@@ -88,7 +88,7 @@ a { color: var(--link); }
 .section { position: relative; padding-block: clamp(80px, 13vw, 160px); }
 .section-soft { background: var(--bg-soft); transition: background-color 0.25s ease; }
 .section-soft .placeholder, .section-soft .form-status { background: var(--card); }
-.eyebrow { font: 600 0.85rem/1 var(--body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+.eyebrow { display: inline-block; font: 600 0.85rem/1 var(--body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; padding: 9px 16px 8px; border: 1.5px solid currentColor; border-radius: 999px; background: none; }
 .lead { margin-top: 20px; font-size: clamp(1.1rem, 2.6vw, 1.35rem); color: var(--text-2); max-width: 36em; }
 /* Dégradé de marque réservé aux grands titres. */
 .gradient-text { background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
