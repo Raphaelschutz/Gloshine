@@ -4,6 +4,7 @@ import { FormEvent, useState } from 'react';
 import Link from 'next/link';
 import { Spark } from '@/components/PrimaryButton';
 import { site } from '@/content/site';
+import { isStatic } from '@/lib/base';
 
 type Status = 'idle' | 'sending' | 'sent' | 'not_configured' | 'error';
 
@@ -20,6 +21,11 @@ export function VisitForm() {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
+    if (isStatic) {
+      // Version en ligne sans serveur : rien n'est envoyé, on le dit et on renvoie vers le téléphone.
+      setStatus('not_configured');
+      return;
+    }
     setStatus('sending');
     try {
       const response = await fetch('/api/devis', {

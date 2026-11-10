@@ -1,3 +1,5 @@
+import { base } from '@/lib/base';
+
 // Tout le contenu du site. Identité validée par Glody : ne rien ajouter qui ne vienne pas de lui.
 // Les valeurs entre crochets sont des emplacements à remplir, affichés tels quels sur le site.
 
@@ -31,10 +33,10 @@ export const hero = {
 // Images d'illustration provisoires (Canva), à remplacer par de vraies photos de Glo Shine.
 // Jamais présentées comme un chantier réel ; l'avant/après reste réservé aux vraies photos.
 export const images = {
-  hero: { src: '/ambiance/fenetre.jpg', alt: 'Salon lumineux avec une grande fenêtre en arc' },
-  airbnb: { src: '/ambiance/chambre.jpg', alt: 'Chambre claire au lit fait, serviettes pliées' },
-  zones: { src: '/ambiance/cuisine.jpg', alt: 'Cuisine claire dans la lumière du matin' },
-  apropos: { src: '/ambiance/apropos.jpg', alt: 'Grand salon impeccable baigné de lumière au coucher du soleil' },
+  hero: { src: `${base}/ambiance/fenetre.jpg`, alt: 'Salon lumineux avec une grande fenêtre en arc' },
+  airbnb: { src: `${base}/ambiance/chambre.jpg`, alt: 'Chambre claire au lit fait, serviettes pliées' },
+  zones: { src: `${base}/ambiance/cuisine.jpg`, alt: 'Cuisine claire dans la lumière du matin' },
+  apropos: { src: `${base}/ambiance/apropos.jpg`, alt: 'Grand salon impeccable baigné de lumière au coucher du soleil' },
 };
 
 // Qui sommes-nous : uniquement des faits fournis par Glo Shine (expérience en biopharmaceutique).

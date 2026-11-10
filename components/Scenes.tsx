@@ -38,10 +38,13 @@ export function Scenes({ children }: { children: React.ReactNode }) {
             },
           });
 
-          // L'étincelle du logo scintille une fois.
-          gsap.timeline({ delay: 0.3 })
-            .fromTo('[data-anim="etincelle"]', { scale: 0.5, rotation: -45 }, { scale: 1.25, rotation: 0, duration: 0.35, ease: 'power2.out', svgOrigin: '108 32' })
-            .to('[data-anim="etincelle"]', { scale: 1, duration: 0.3, ease: 'power2.inOut', svgOrigin: '108 32' });
+          // L'étincelle du logo de l'en-tête scintille une fois (l'en-tête est hors de cette zone, d'où la recherche dans la page).
+          const etincelle = document.querySelector('.header [data-anim="etincelle"]');
+          if (etincelle) {
+            gsap.timeline({ delay: intro ? 3.2 : 0.3 })
+              .fromTo(etincelle, { scale: 0.5, rotation: -45 }, { scale: 1.25, rotation: 0, duration: 0.35, ease: 'power2.out', svgOrigin: '108 32' })
+              .to(etincelle, { scale: 1, duration: 0.3, ease: 'power2.inOut', svgOrigin: '108 32' });
+          }
 
           // Grand dégradé de fond : parallaxe lente sur toute la page.
           gsap.to('[data-anim="aurore"]', {
