@@ -1,5 +1,6 @@
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { Intro } from '@/components/Intro';
 import { CallLink, PrimaryButton } from '@/components/PrimaryButton';
 import { Scenes } from '@/components/Scenes';
 import { StickyCta } from '@/components/StickyCta';
@@ -16,6 +17,7 @@ const Check = () => (
 export default function Home() {
   return (
     <>
+      <Intro />
       <a className="skip" href="#contenu">Aller au contenu</a>
       <Header />
       <Scenes>

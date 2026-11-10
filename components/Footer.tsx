@@ -12,7 +12,7 @@ export function Footer() {
             <h2>Contact</h2>
             <ul>
               <li><a href={site.phone.href}>{site.phone.label}</a></li>
-              <li className="muted">{site.email}</li>
+              <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
               <li className="muted">{site.domain}</li>
             </ul>
           </div>

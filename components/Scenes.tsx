@@ -26,10 +26,16 @@ export function Scenes({ children }: { children: React.ReactNode }) {
           const { ordinateur } = ctx.conditions as { ordinateur: boolean };
 
           // Titre de l'accueil : mot par mot, toujours visible (léger déplacement, jamais d'opacité 0).
+          // Avec l'intro, il attend qu'elle se retire pour démarrer.
+          const intro = document.documentElement.dataset.intro === '1';
           SplitText.create('[data-split="titre"]', {
             type: 'words',
             wordsClass: 'word',
-            onSplit: (self) => gsap.from(self.words, { y: 20, duration: 0.5, stagger: 0.035, ease: 'power3.out' }),
+            onSplit: (self) => {
+              const tween = gsap.from(self.words, { y: 20, duration: 0.5, stagger: 0.035, ease: 'power3.out', paused: intro });
+              if (intro) document.addEventListener('intro:fin', () => tween.play(), { once: true });
+              return tween;
+            },
           });
 
           // L'étincelle du logo scintille une fois.

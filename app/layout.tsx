@@ -36,8 +36,8 @@ export const viewport: Viewport = {
   ],
 };
 
-// Appliqué avant le premier affichage : pas de flash de thème.
-const themeScript = `(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.dataset.theme=t})()`;
+// Appliqué avant le premier affichage : pas de flash de thème, et décision d'afficher l'intro.
+const themeScript = `(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.dataset.theme=t;try{if(location.pathname==='/'&&!sessionStorage.getItem('intro-vue')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.dataset.intro='1'}}catch(e){}})()`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

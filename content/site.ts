@@ -7,7 +7,7 @@ export const site = {
   tagline: 'Nettoyage à domicile et ménages Airbnb à Liège et Bruxelles',
   phone: { label: '+32 465 86 85 53', href: 'tel:+32465868553' },
   cta: 'Demander une visite gratuite',
-  email: '[EMAIL]',
+  email: 'contact.gloshine@gmail.com', // celle du flyer, en attendant une adresse définitive
   legal: {
     denomination: '[DÉNOMINATION]',
     form: '[FORME JURIDIQUE]',
@@ -19,6 +19,9 @@ export const site = {
     retention: '[DURÉE DE CONSERVATION DES DEMANDES]',
   },
 };
+
+// Slogan validé par Raphaël, affiché sur l'intro et le flyer.
+export const slogan = 'Un intérieur qui brille, sans lever le petit doigt.';
 
 export const hero = {
   title: 'Nettoyage à domicile et ménages Airbnb à Liège et Bruxelles',

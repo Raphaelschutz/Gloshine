@@ -133,6 +133,17 @@ a { color: var(--link); }
 .sticky-cta { position: fixed; z-index: 50; left: var(--gutter); right: var(--gutter); bottom: max(14px, env(safe-area-inset-bottom)); box-shadow: 0 10px 30px var(--shadow); transition: opacity 0.25s ease, transform 0.25s ease, background-position 0.45s ease; }
 .sticky-cta[data-visible='false'] { opacity: 0; transform: translateY(16px); pointer-events: none; visibility: hidden; }
 
+/* Intro : logo et slogan avant l'ouverture du site. */
+.intro { display: none; }
+html[data-intro='1'] .intro { position: fixed; inset: 0; z-index: 200; display: grid; place-content: center; justify-items: center; gap: 22px; padding: 24px; text-align: center; background: var(--bg); cursor: pointer; animation: intro-secours 0.6s ease 3.2s forwards; }
+html[data-intro='1'] .intro::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: var(--aurora-opacity); background: radial-gradient(closest-side at 70% 30%, var(--brand-a), transparent 70%), radial-gradient(closest-side at 30% 75%, var(--brand-b), transparent 70%); }
+html[data-intro='1'] .intro.intro-js { animation: none; }
+@keyframes intro-secours { to { transform: translateY(-100%); visibility: hidden; } }
+.intro-logo { width: min(80vw, 440px); height: auto; }
+.intro-slogan { max-width: 14em; font: 600 clamp(1.7rem, 6.5vw, 3.2rem)/1.1 var(--display); letter-spacing: -0.02em; text-wrap: balance; }
+.intro-skip { min-height: 48px; padding: 0 22px; border: 1.5px solid var(--border); border-radius: 999px; background: transparent; color: var(--text); font: 600 0.95rem/1 var(--body); cursor: pointer; }
+.intro-skip:hover { border-color: var(--link); color: var(--link); }
+
 /* Accueil */
 .hero { position: relative; min-height: calc(100svh - 69px); display: grid; align-content: center; gap: 36px; padding-block: 40px 56px; }
 .hero h1 { font-size: clamp(2.4rem, 10vw, 6.2rem); line-height: 1.03; letter-spacing: -0.03em; }
