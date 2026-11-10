@@ -8,7 +8,7 @@ import { site } from '@/content/site';
 type Status = 'idle' | 'sending' | 'sent' | 'not_configured' | 'error';
 
 const messages: Partial<Record<Status, string>> = {
-  sent: 'Merci, votre demande est bien partie. Glody vous recontacte pour fixer la visite.',
+  sent: 'Merci, votre demande est bien partie. Nous vous recontactons pour fixer la visite.',
   not_configured: `Le formulaire n’est pas encore relié : votre demande n’a pas été envoyée. Appelez le ${site.phone.label}.`,
   error: 'L’envoi a échoué et votre demande n’est pas partie. Vérifiez les champs puis réessayez.',
 };

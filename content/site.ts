@@ -50,7 +50,7 @@ export const airbnb = {
 
 export const steps = [
   { title: 'Vous demandez une visite', text: 'Par le formulaire ou par téléphone.' },
-  { title: 'Glody passe chez vous', text: 'Il découvre votre logement et vos attentes.' },
+  { title: 'Un technicien passe chez vous', text: 'Il découvre votre logement et vos attentes.' },
   { title: 'Vous recevez un devis adapté', text: 'Un prix établi pour votre logement.' },
   { title: 'On fait le ménage', text: 'Au rythme convenu ensemble.' },
 ];
@@ -61,7 +61,7 @@ export const zones = [
 ];
 
 export const faq = [
-  { q: 'La visite est-elle gratuite ?', a: 'Oui. Glody passe chez vous pour voir le logement, puis vous envoie un devis. Vous décidez ensuite.' },
+  { q: 'La visite est-elle gratuite ?', a: 'Oui. Un technicien passe chez vous pour voir le logement, puis nous vous envoyons un devis. Vous décidez ensuite.' },
   { q: 'Pourquoi une visite avant le devis ?', a: 'Chaque logement est différent. Voir les pièces et parler de vos attentes permet de proposer un prix adapté.' },
   { q: 'Où intervenez-vous ?', a: 'À Liège et dans ses environs, et à Bruxelles.' },
   { q: 'Vous occupez-vous des logements Airbnb ?', a: 'Oui, entre deux séjours. Les créneaux et les week-ends sont à convenir ensemble.' },

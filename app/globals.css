@@ -161,18 +161,6 @@ a { color: var(--link); }
 .step-num { position: absolute; left: -64px; top: -4px; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--gradient); color: var(--on-brand); font: 600 1.1rem/1 var(--display); }
 .step p { margin-top: 6px; color: var(--text-2); }
 
-/* Avant / après : seuls des transforms bougent. */
-.compare { position: relative; margin-top: 44px; aspect-ratio: 4 / 3; border-radius: 24px; overflow: hidden; }
-.compare-layer { position: absolute; inset: 0; }
-.compare-layer .placeholder { height: 100%; border-radius: 24px; }
-.compare-after { overflow: hidden; transform: translateX(50%); }
-.compare-after-inner { position: absolute; inset: 0; transform: translateX(-50%); }
-.compare-after .placeholder { background: var(--card); }
-.compare-handle { position: absolute; inset: 0; transform: translateX(50%); pointer-events: none; }
-.compare-handle::before { content: ''; position: absolute; left: -1.5px; top: 0; bottom: 0; width: 3px; background: var(--gradient); }
-.compare-handle span { position: absolute; left: -22px; top: 50%; display: grid; place-items: center; width: 44px; height: 44px; margin-top: -22px; border-radius: 50%; background: var(--gradient); color: var(--on-brand); font-weight: 700; }
-.compare-label { position: absolute; top: 14px; padding: 6px 12px; border-radius: 999px; background: var(--bg); color: var(--text); font: 600 0.8rem/1.2 var(--body); }
-
 /* Zones */
 .zones { display: grid; gap: 18px; margin-top: 44px; }
 .zone { padding: 34px 28px; border-radius: 24px; background: var(--card); border: 1px solid var(--border); transition: background-color 0.25s ease, border-color 0.25s ease; }
@@ -229,7 +217,6 @@ a { color: var(--link); }
   .zones { grid-template-columns: 1fr 1fr; }
   .form-row { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: repeat(3, 1fr); }
-  .compare { aspect-ratio: 16 / 9; }
 }
 
 @media (min-width: 960px) {

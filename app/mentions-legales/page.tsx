@@ -11,7 +11,7 @@ export default function MentionsLegales() {
       <Header />
       <main className="legal">
         <h1>Mentions légales</h1>
-        <p>Page à compléter avec les informations fournies par Glody, puis à faire relire avant la mise en ligne.</p>
+        <p>Page à compléter, puis à faire relire avant la mise en ligne.</p>
 
         <h2>Éditeur du site</h2>
         <ul>

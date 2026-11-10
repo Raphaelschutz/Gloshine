@@ -73,13 +73,6 @@ export function Scenes({ children }: { children: React.ReactNode }) {
           gsap.utils.toArray<HTMLElement>('[data-anim="etape"]').forEach((step) => {
             gsap.from(step, { y: 24, opacity: 0, duration: 0.55, ease: 'power3.out', scrollTrigger: { trigger: step, start: 'top 97%', once: true } });
           });
-
-          // Avant / après : le curseur glisse sur la photo au défilement (transforms seulement).
-          gsap
-            .timeline({ scrollTrigger: { trigger: '[data-anim="avant-apres"]', start: 'top 80%', end: 'bottom 35%', scrub: 0.6 } })
-            .fromTo('[data-anim="apres"]', { xPercent: 85 }, { xPercent: 15, ease: 'none' }, 0)
-            .fromTo('[data-anim="apres-interieur"]', { xPercent: -85 }, { xPercent: -15, ease: 'none' }, 0)
-            .fromTo('[data-anim="poignee"]', { xPercent: 85 }, { xPercent: 15, ease: 'none' }, 0);
         },
         root,
       );

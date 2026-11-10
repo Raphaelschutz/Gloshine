@@ -11,7 +11,7 @@ export default function Confidentialite() {
       <Header />
       <main className="legal">
         <h1>Politique de confidentialité</h1>
-        <p>Page à compléter avec les informations fournies par Glody, puis à faire relire avant la mise en ligne.</p>
+        <p>Page à compléter, puis à faire relire avant la mise en ligne.</p>
 
         <h2>Qui est responsable de vos données</h2>
         <p>{site.legal.denomination}, {site.legal.address}. Contact : {site.email}, {site.phone.label}.</p>

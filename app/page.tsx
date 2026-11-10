@@ -66,7 +66,7 @@ export default function Home() {
                   <li key={point.text} data-anim="carte">
                     <Check />
                     {point.text}
-                    {point.confirm && <span className="tag">À CONFIRMER AVEC GLODY</span>}
+                    {point.confirm && <span className="tag">À CONFIRMER</span>}
                   </li>
                 ))}
               </ul>
@@ -92,27 +92,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="section section-soft" id="resultat">
-            <div className="wrap">
-              <p className="eyebrow" data-anim="apparition">Avant / après</p>
-              <h2 data-anim="apparition">Le résultat, en <span className="gradient-text">vraies photos</span></h2>
-              <div className="compare" data-anim="avant-apres" role="img" aria-label="Comparaison avant et après, photos à venir">
-                <div className="compare-layer">
-                  <div className="placeholder">[PHOTO AVANT]</div>
-                  <span className="compare-label" style={{ left: 14 }}>Avant</span>
-                </div>
-                <div className="compare-layer compare-after" data-anim="apres">
-                  <div className="compare-after-inner" data-anim="apres-interieur">
-                    <div className="placeholder">[PHOTO APRÈS]</div>
-                    <span className="compare-label" style={{ right: 14 }}>Après</span>
-                  </div>
-                </div>
-                <div className="compare-handle" data-anim="poignee" aria-hidden="true"><span>↔</span></div>
-              </div>
-            </div>
-          </section>
-
-          <section className="section" id="zones">
+          <section className="section section-soft" id="zones">
             <div className="wrap">
               <p className="eyebrow" data-anim="apparition">Zones</p>
               <h2 data-anim="apparition">Là où nous intervenons</h2>
@@ -130,7 +110,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="section section-soft" id="avis">
+          <section className="section" id="avis">
             <div className="wrap">
               <p className="eyebrow" data-anim="apparition">Avis clients</p>
               <h2 data-anim="apparition">Ce qu’en disent nos clients</h2>
@@ -138,7 +118,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="section" id="faq">
+          <section className="section section-soft" id="faq">
             <div className="wrap">
               <p className="eyebrow" data-anim="apparition">Questions fréquentes</p>
               <h2 data-anim="apparition">Vos questions</h2>
@@ -153,11 +133,11 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="section section-soft" id="visite">
+          <section className="section" id="visite">
             <div className="wrap form-wrap">
               <p className="eyebrow">Visite gratuite</p>
               <h2>Demander une visite <span className="gradient-text">gratuite</span></h2>
-              <p className="lead">Glody passe chez vous, puis vous propose un devis adapté à votre logement.</p>
+              <p className="lead">Un technicien passe chez vous, puis nous vous proposons un devis adapté à votre logement.</p>
               <VisitForm />
             </div>
           </section>
