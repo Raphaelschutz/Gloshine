@@ -62,6 +62,12 @@ export function Scenes({ children }: { children: React.ReactNode }) {
             gsap.from(el, { y: ordinateur ? 60 : 24, opacity: 0, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 97%', once: true } });
           });
 
+          // Photos : l'image glisse légèrement dans son cadre au défilement (parallaxe, transform seulement).
+          gsap.utils.toArray<HTMLElement>('[data-parallax] img').forEach((img) => {
+            const amplitude = ordinateur ? 6 : 4;
+            gsap.fromTo(img, { yPercent: -amplitude }, { yPercent: amplitude, ease: 'none', scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: 0.4 } });
+          });
+
           // Cartes en cascade.
           gsap.set('[data-anim="carte"]', { y: 30, opacity: 0 });
           ScrollTrigger.batch('[data-anim="carte"]', {

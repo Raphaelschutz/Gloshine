@@ -99,6 +99,8 @@ a { color: var(--link); }
 /* Images d'illustration */
 .photo { position: relative; overflow: hidden; border-radius: 24px; background: var(--bg-soft); }
 .photo img { object-fit: cover; }
+/* Parallaxe : l'image dépasse de 8 % en haut et en bas pour pouvoir glisser sans laisser de bord vide. */
+.photo[data-parallax] img { top: -8% !important; height: 116% !important; will-change: transform; }
 .photo-wide { aspect-ratio: 3 / 2; margin-top: 32px; }
 .photo-band { aspect-ratio: 16 / 9; margin-top: 18px; }
 
@@ -128,10 +130,6 @@ a { color: var(--link); }
 .theme-toggle:hover { background: var(--bg-soft); }
 .theme-toggle svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 .header .link-call span { display: none; }
-.header-inner > .theme-toggle { order: 3; }
-.header-inner > .logo-link { order: 0; }
-.header-inner > .nav { order: 1; }
-.header-inner > .header-actions { order: 2; }
 
 /* Bouton fixe : n'apparaît que lorsque celui de l'accueil a quitté l'écran, et s'efface sur le formulaire. */
 .sticky-cta { position: fixed; z-index: 50; left: var(--gutter); right: var(--gutter); bottom: max(14px, env(safe-area-inset-bottom)); box-shadow: 0 10px 30px var(--shadow); transition: opacity 0.25s ease, transform 0.25s ease, background-position 0.45s ease; }
@@ -237,16 +235,14 @@ html[data-intro='1'] .intro.intro-js { animation: none; }
 @media (min-width: 960px) {
   :root { --gutter: 40px; }
   .nav { display: flex; }
-  .header-inner > .theme-toggle { order: -1; margin-left: -12px; }
+  .header .theme-toggle { margin-right: -12px; }
   .header-actions { margin-left: 18px; }
   .hero { grid-template-columns: 1.5fr 0.75fr; align-items: center; gap: 56px; }
   .hero h1 { font-size: clamp(3.2rem, 5vw, 4.9rem); }
   .hero-visual { aspect-ratio: 4 / 5; }
   .airbnb { grid-template-columns: 1fr 1fr; align-items: start; gap: 64px; }
-  /* Sur ordinateur, le même bouton unique se loge dans l'en-tête, à droite. */
-  .sticky-cta { left: auto; right: 24px; bottom: auto; top: 8px; box-shadow: none; }
-  .sticky-cta[data-visible='false'] { transform: translateY(-12px); }
-  .header-inner { padding-right: 270px; }
+  /* Sur ordinateur, le même bouton unique flotte en bas à droite (le coin de l'en-tête est à la bascule de thème). */
+  .sticky-cta { left: auto; right: 32px; bottom: 32px; }
   .steps { grid-template-columns: repeat(4, 1fr); padding-left: 0; padding-top: 76px; gap: 28px; }
   .steps-track { left: 23px; right: 23px; top: 21px; bottom: auto; width: auto; height: 3px; }
   .steps-line { background: linear-gradient(90deg, var(--brand-a), var(--brand-b)); transform-origin: left; }

@@ -33,7 +33,7 @@ export default function Home() {
                 <CallLink />
               </div>
             </div>
-            <div className="photo hero-visual">
+            <div className="photo hero-visual" data-parallax>
               <Image src={images.hero.src} alt={images.hero.alt} fill priority sizes="(min-width: 960px) 40vw, 100vw" />
             </div>
           </section>
@@ -59,7 +59,7 @@ export default function Home() {
               <div>
                 <p className="eyebrow" data-anim="apparition">Airbnb et conciergeries</p>
                 <h2 data-anim="apparition">{airbnb.title}</h2>
-                <div className="photo photo-wide" data-anim="photo">
+                <div className="photo photo-wide" data-anim="photo" data-parallax>
                   <Image src={images.airbnb.src} alt={images.airbnb.alt} fill sizes="(min-width: 960px) 45vw, 100vw" />
                 </div>
               </div>
@@ -106,7 +106,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <div className="photo photo-band" data-anim="photo">
+              <div className="photo photo-band" data-anim="photo" data-parallax>
                 <Image src={images.zones.src} alt={images.zones.alt} fill sizes="(min-width: 1200px) 1120px, 100vw" />
               </div>
             </div>
