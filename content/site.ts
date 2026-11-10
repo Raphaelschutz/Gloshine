@@ -40,16 +40,16 @@ export const images = {
 // Qui sommes-nous : uniquement des faits fournis par Glo Shine (expérience en biopharmaceutique).
 // Aucun nom d'entreprise, certification ou chiffre tant que Glody ne les a pas confirmés.
 export const apropos = {
-  title: 'La rigueur du biopharma,',
-  titleAccent: 'appliquée à votre intérieur',
+  title: 'Des professionnels venus d’un milieu',
+  titleAccent: 'où la propreté doit être parfaite',
   text: [
-    'Notre équipe vient du nettoyage en environnement biopharmaceutique. Là-bas, les surfaces sont nettoyées plusieurs fois par jour, selon des protocoles stricts où rien n’est laissé au hasard.',
-    'Nous apportons ce niveau d’exigence chez vous : chaque pièce est traitée avec la même méthode et le même soin du détail.',
+    'Nous venons du nettoyage en environnement biopharmaceutique. Là-bas, la propreté n’est pas une option : elle doit être parfaite, chaque jour, sans exception.',
+    'C’est ce niveau d’exigence que nous apportons chez vous. Un travail de pros, et un intérieur impeccable à chaque passage.',
   ],
   points: [
-    'Des protocoles précis, pièce par pièce',
-    'Le réflexe du détail, là où l’on ne regarde pas',
-    'Le même niveau d’exigence, à chaque passage',
+    'Des méthodes de professionnels',
+    'Le souci du moindre détail',
+    'Un résultat impeccable, à chaque passage',
   ],
 };
 
