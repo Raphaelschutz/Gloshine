@@ -128,6 +128,10 @@ a { color: var(--link); }
 .theme-toggle:hover { background: var(--bg-soft); }
 .theme-toggle svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 .header .link-call span { display: none; }
+.header-inner > .theme-toggle { order: 3; }
+.header-inner > .logo-link { order: 0; }
+.header-inner > .nav { order: 1; }
+.header-inner > .header-actions { order: 2; }
 
 /* Bouton fixe : n'apparaît que lorsque celui de l'accueil a quitté l'écran, et s'efface sur le formulaire. */
 .sticky-cta { position: fixed; z-index: 50; left: var(--gutter); right: var(--gutter); bottom: max(14px, env(safe-area-inset-bottom)); box-shadow: 0 10px 30px var(--shadow); transition: opacity 0.25s ease, transform 0.25s ease, background-position 0.45s ease; }
@@ -233,6 +237,7 @@ html[data-intro='1'] .intro.intro-js { animation: none; }
 @media (min-width: 960px) {
   :root { --gutter: 40px; }
   .nav { display: flex; }
+  .header-inner > .theme-toggle { order: -1; margin-left: -12px; }
   .header-actions { margin-left: 18px; }
   .hero { grid-template-columns: 1.5fr 0.75fr; align-items: center; gap: 56px; }
   .hero h1 { font-size: clamp(3.2rem, 5vw, 4.9rem); }

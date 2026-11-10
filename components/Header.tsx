@@ -7,6 +7,8 @@ export function Header() {
   return (
     <header className="header">
       <div className="wrap header-inner">
+        {/* Bascule de thème : tout à gauche sur ordinateur, à droite sur téléphone (ordre géré en CSS). */}
+        <ThemeToggle />
         {/* Retour à l'accueil : défilement doux sur la page d'accueil, navigation depuis les autres pages. */}
         <a href="/#accueil" className="logo-link">
           <Logo id="logo-entete" />
@@ -19,7 +21,6 @@ export function Header() {
         </nav>
         <div className="header-actions">
           <CallLink />
-          <ThemeToggle />
         </div>
       </div>
     </header>
